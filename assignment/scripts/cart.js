@@ -106,9 +106,16 @@ console.log('Another Empty Basket', empty([]));
 // *** SEE ABOVE ***
 
 // STRETCH: `removeItem` function removes & returns the first matching item from `basket`
-removeItem();
 
-// STRETCH: `removeItem` function returns null when item is not found
+removeItem = (item) => {
+  let basketIndex = basket.indexOf(item);
+  // Use Array.indexOf to find the index of the first matching item in the basket.
+  if (basketIndex >= 0) {
+    // Use Array.splice to remove the first matching item from the basket.
+    basket.splice(basketIndex, basketIndex);
+    return item;
+  }
+};
 
 // DO NOT MODIFY
 // Used for automated testing

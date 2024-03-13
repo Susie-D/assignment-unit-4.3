@@ -7,33 +7,76 @@ let basket = [];
 
 // ----------------------------------------
 
+// STRETCH
+// Add a global const named maxItems and set it to 5.
+const maxItems = 5;
+
+// Create a function called isFull(). It should:
+//  1) return false if the basket contains less than max number of items
+//  2) return true otherwise (equal or more than maxItems)
+
+// Why not let!?
+// let isFull2 = function () {
+//   // let something = 'whatever';
+//   return
+// }
+
+let isFull = () => {
+  if (basket.length < maxItems) {
+    // check the items
+    // console.log('Basket items #', basket.length);
+    // console.log('maxItem', maxItems);
+    return false;
+  }
+  return true;
+};
+
 // addItem is a function to add items to basket
-let addItem = (item) => {
-  if (item) {
+
+addItem = (item) => {
+  if (item && !isFull()) {
     basket.push(item);
-    return basket && true;
-  } else return false;
+    return true;
+  }
+  return false;
 };
 
 // Test the functions and results
-console.log(addItem()); // false
-console.log(addItem(['shoes', 'hat', 'jacket'])); // true
-console.log('Basket items', basket); // let me see those basket items!
+// console.log(addItem()); // false
+// console.log(['shoes', 'hat', 'jacket'].forEach(item => addItem(item))); // true
+// console.log('Basket items', basket); // let me see those basket items!
 
 // ----------------------------------------
 
 // listItems to loop through basket and list the items!
-let listItems = (basket) => {
+// let listItems = () => {
+//   // check if the basket has items
+//   console.log('Basket', basket);
+//   for (let i = 0; i < basket.length; i++) {
+//     do {
+//       console.log('Basket has these items:', basket[i].toString());
+//     } while (basket.length !== 0);
+//   }
+//   // STOP DOING THIS!!! :)
+//   // return console.log('Removed items:', basket);
+//   basket.pop();
+//   return basket;
+// };
+
+listItems = () => {
   for (let i = 0; i < basket.length; i++) {
     console.log('Basket has these items:', basket[i]);
   }
+  return basket;
 };
-// Test the functions and display basket items
-// console.log('List items', listItems(basket)); // true
+
+//Test the functions and display basket items
+listItems();
 
 // Example test
 console.log(`Basket is ${basket}`);
 console.log('Adding apples (expect true)', addItem('apples'));
+console.log('Adding oranges (expect true)', addItem('oranges'));
 console.log(`Basket is now ${basket}`);
 
 // ----------------------------------------
@@ -47,7 +90,9 @@ let empty = () => {
       basket.pop(basket[i]);
     } while (basket.length !== 0);
   }
-  return console.log('Removed items:', basket);
+  // STOP DOING THIS!!! :)
+  // return console.log('Removed items:', basket);
+  return basket;
 };
 //};
 
@@ -57,31 +102,12 @@ console.log('Another Empty Basket', empty([]));
 
 // ----------------------------------------
 
-// STRETCH
-// Add a global const named maxItems and set it to 5.
-const maxItems = 5;
-
-// Create a function called isFull().
-let isFull = () => {
-  if (basket.length === maxItems) {
-    // check the items
-    console.log('Basket items #', basket.length);
-    console.log('maxItem', maxItems);
-    return true;
-  } else if (basket.length > maxItems || basket.length === 0) {
-    // console.log('Basket items #', basket);
-    return false;
-  }
-};
-// Test max items
-console.log(
-  'Full && true',
-  isFull(['shoes', 'jacket', 'shirt', 'hat', 'gloves'])
-); // full, true -- this SHOULD BE WORKING?! WHHHHY!?
-console.log('Not full && false', isFull(['shorts', 'pants', 'skirt'])); // not full, false
-
 // STRETCH: `addItem` function updated to use `isFull` and return `false` when full
+// *** SEE ABOVE ***
+
 // STRETCH: `removeItem` function removes & returns the first matching item from `basket`
+removeItem();
+
 // STRETCH: `removeItem` function returns null when item is not found
 
 // DO NOT MODIFY

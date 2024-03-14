@@ -117,6 +117,30 @@ removeItem = (item) => {
   }
 };
 
+// workingOut = () => {
+//   switch (workout) {
+//     case 'kickboxing':
+//     case 'running':
+//       console.log('cardio');
+//       break;
+//     case 'rock climbing':
+//       console.log('endurance');
+//       break;
+//     case 'bootcamp':
+//     case 'lifting weights':
+//       console.log('strength training');
+//       break;
+//     case 'yoga':
+//       console.log('flexibility');
+//       break;
+//     default:
+//       console.log('Are you playing Fornite?!');
+//   }
+// };
+
+// let workout = '';
+// workingOut();
+
 // DO NOT MODIFY
 // Used for automated testing
 try {
